@@ -27,9 +27,15 @@
     <ClInclude Include="src\TomFrame\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\TomFrame\WindowSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\TomFrame\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TomFrame\WindowSettings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

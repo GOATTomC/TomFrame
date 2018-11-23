@@ -15,9 +15,11 @@
     <ClInclude Include="src\TomFrame\Application.h" />
     <ClInclude Include="src\TomFrame\Core.h" />
     <ClInclude Include="src\TomFrame\EntryPoint.h" />
+    <ClInclude Include="src\TomFrame\WindowSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\TomFrame\Application.cpp" />
+    <ClCompile Include="src\TomFrame\WindowSettings.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -66,7 +68,12 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>TF_PLATFORM_WINDOWS;_WINDLL;TF_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
