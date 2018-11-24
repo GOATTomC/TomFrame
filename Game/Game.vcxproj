@@ -83,6 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameApp.cpp" />
+    <ClCompile Include="src\Game\Airplane.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Game\Airplane.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
