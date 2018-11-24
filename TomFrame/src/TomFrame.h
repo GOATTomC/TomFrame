@@ -7,3 +7,8 @@
 //----------Entry Point----------------
 #include "TomFrame/EntryPoint.h"
 //-------------------------------------
+
+//----------World----------------------
+#include "TomFrame/Game/World/World.h"
+#include "TomFrame/Game/World/GameWorld.cpp"
+//-------------------------------------

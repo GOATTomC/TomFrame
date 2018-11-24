@@ -15,10 +15,13 @@
     <ClInclude Include="src\TomFrame\Application.h" />
     <ClInclude Include="src\TomFrame\Core.h" />
     <ClInclude Include="src\TomFrame\EntryPoint.h" />
+    <ClInclude Include="src\TomFrame\Game\World\GameWorld.h" />
+    <ClInclude Include="src\TomFrame\Game\World\World.h" />
     <ClInclude Include="src\TomFrame\WindowSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\TomFrame\Application.cpp" />
+    <ClCompile Include="src\TomFrame\Game\World\GameWorld.cpp" />
     <ClCompile Include="src\TomFrame\WindowSettings.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
