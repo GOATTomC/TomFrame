@@ -4,13 +4,15 @@
 class Game : public TomFrame::Application 
 {
 public:
-	Game() 
+	Game(TomFrame::World* world) 
 	{
 		//Set the window settings here before booting it
 		p_WindowSettings = new TomFrame::WindowSettings();
 		p_WindowSettings->SetWindowText("Shooter");
 		p_WindowSettings->SetScreenSize(800, 600);
-		CreateGame();
+
+		//Create all the objects the client wants at the start of the game
+		CreateGame(world);
 	}
 
 	~Game()
@@ -18,16 +20,20 @@ public:
 		delete p_WindowSettings;
 	}
 
-	void CreateGame();
+	/*Creates all the object the player wants at the start of the game*/
+	void CreateGame(TomFrame::World* world);
 };
 
-void Game::CreateGame()
+void Game::CreateGame(TomFrame::World* world)
 {
 	Airplane* airplane = new Airplane("Player Airplane");
+	world->RegisterObject();
+
+	TomFrame::Debug::Logger::Log("Custom game created");
 }
 
-TomFrame::Application* TomFrame::CreateApplication()
+TomFrame::Application* TomFrame::CreateApplication(World* world)
 {
-	return new Game();
+	return new Game(world);
 }
 

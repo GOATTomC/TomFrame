@@ -8,7 +8,7 @@ namespace TomFrame
 }
 
 namespace TomFrame {
-
+	class World;
 	class TOMFRAME_API Application
 	{
 	public:
@@ -24,6 +24,6 @@ namespace TomFrame {
 	};
 
 	/*To be defined in a TomFrame client*/
-	Application* CreateApplication();
+	Application* CreateApplication(World* world);
 }
 

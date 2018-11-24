@@ -8,6 +8,10 @@
 #include "TomFrame/EntryPoint.h"
 //-------------------------------------
 
+//----------Debug----------------------
+#include "TomFrame/Debug/Logger.h"
+//-------------------------------------
+
 //----------World----------------------
 #include "TomFrame/Game/World/World.h"
 #include "TomFrame/Game/World/GameWorld.cpp"

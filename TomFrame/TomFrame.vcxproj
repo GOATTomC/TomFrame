@@ -14,6 +14,7 @@
     <ClInclude Include="src\TomFrame.h" />
     <ClInclude Include="src\TomFrame\Application.h" />
     <ClInclude Include="src\TomFrame\Core.h" />
+    <ClInclude Include="src\TomFrame\Debug\Logger.h" />
     <ClInclude Include="src\TomFrame\EntryPoint.h" />
     <ClInclude Include="src\TomFrame\Game\Objects\WorldObject.h" />
     <ClInclude Include="src\TomFrame\Game\World\GameWorld.h" />
@@ -22,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\TomFrame\Application.cpp" />
+    <ClCompile Include="src\TomFrame\Debug\Logger.cpp" />
     <ClCompile Include="src\TomFrame\Game\Objects\WorldObject.cpp" />
     <ClCompile Include="src\TomFrame\Game\World\GameWorld.cpp" />
     <ClCompile Include="src\TomFrame\WindowSettings.cpp" />
