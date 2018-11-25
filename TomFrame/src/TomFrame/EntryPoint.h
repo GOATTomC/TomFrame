@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 {
 	TomFrame::GameWorld* world = new TomFrame::GameWorld();
 	auto game = TomFrame::CreateApplication(world);
-	game->Run();
+	game->Run(world);
 	delete game;
 	return 0;
 }

@@ -42,6 +42,9 @@
     <ClInclude Include="src\TomFrame\Debug\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\TomFrameObjects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\TomFrame\Application.cpp">

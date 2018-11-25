@@ -12,6 +12,8 @@ namespace TomFrame
 		TOMFRAME_API WorldObject(std::string name);
 		~WorldObject();
 
+		virtual void Update() = 0;
+
 	private:
 		/*The name of the WorldObject*/
 		std::string m_Name;

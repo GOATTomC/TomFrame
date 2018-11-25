@@ -9,6 +9,8 @@ namespace TomFrame
 
 namespace TomFrame {
 	class World;
+	class GameWorld;
+
 	class TOMFRAME_API Application
 	{
 	public:
@@ -16,7 +18,7 @@ namespace TomFrame {
 		virtual ~Application();
 
 		/*Runs the engine*/
-		void Run();
+		void Run(GameWorld* world);
 		
 	protected:
 		/*Contains all the information settings about the application window*/

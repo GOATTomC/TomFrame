@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "WindowSettings.h"
+#include "Game/World/GameWorld.h"
 #include <SFML/Graphics.hpp>
 
 namespace TomFrame {
@@ -13,7 +14,7 @@ namespace TomFrame {
 	{
 	}
 
-	void Application::Run()
+	void Application::Run(GameWorld* world)
 	{
 		sf::RenderWindow window(sf::VideoMode(p_WindowSettings->GetScreenSize().Width, p_WindowSettings->GetScreenSize().Height), p_WindowSettings->GetWindowText());
 		sf::CircleShape shape(100.f);
@@ -29,6 +30,7 @@ namespace TomFrame {
 			}
 
 			window.clear();
+			world->Update();
 			window.draw(shape);
 			window.display();
 		}
