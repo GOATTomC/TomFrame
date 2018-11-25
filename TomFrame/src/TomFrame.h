@@ -14,7 +14,7 @@
 
 //----------World----------------------
 #include "TomFrame/Game/World/World.h"
-#include "TomFrame/Game/World/GameWorld.cpp"
+#include "TomFrame/Game/World/GameWorld.h"
 //-------------------------------------
 
 //----------World Object---------------
