@@ -27,6 +27,7 @@ public:
 void Game::CreateGame(TomFrame::World* world)
 {
 	Airplane* airplane = new Airplane("Player Airplane");
+	airplane->Initialise(sf::Vector2f(0.0f, 0.0f), "Airplane.txt");
 	world->RegisterObject(airplane);
 
 	TomFrame::Debug::Logger::Log("Custom game created");

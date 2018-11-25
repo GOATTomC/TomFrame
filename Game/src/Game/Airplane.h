@@ -13,7 +13,7 @@ public:
 	~Airplane();
 
 	
-
+	/*Overrided Update function called by framework*/
 	virtual void Update() override;
 
 };

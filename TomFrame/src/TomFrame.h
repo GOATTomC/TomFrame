@@ -20,3 +20,8 @@
 //----------World Object---------------
 #include "TomFrame/Game/Objects/WorldObject.h"
 //-------------------------------------
+
+
+//----------SFML-----------------------
+#include <SFML/System/Vector2.hpp>
+//-------------------------------------
