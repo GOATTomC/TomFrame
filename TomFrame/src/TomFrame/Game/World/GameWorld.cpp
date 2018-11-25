@@ -14,6 +14,11 @@ void TomFrame::GameWorld::RegisterObject(WorldObject* object)
 
 void TomFrame::GameWorld::Update()
 {
-	TomFrame::Debug::Logger::Log("Update called.");
+	//Loop through all registered WorldObjects
+	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != m_WorldObjects.end(); it++)
+	{
+		(*it)->Update();
+	}
+
 }
 
