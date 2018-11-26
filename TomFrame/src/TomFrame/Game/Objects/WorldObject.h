@@ -9,6 +9,9 @@ namespace sf
 	class Vector2;
 
 	typedef Vector2<float> Vector2f;
+
+	class RenderWindow;
+	class Event;
 }
 
 namespace TomFrame
@@ -36,7 +39,7 @@ namespace TomFrame
 		TOMFRAME_API void Initialise(sf::Vector2f spawnPosition, std::string spriteLocation);
 
 		/*Required update function for all inherited classes from this WorldObject*/
-		virtual void Update() = 0;
+		virtual void Update(sf::Event event, float deltaTime) = 0;
 
 	private:
 		/*The name of the WorldObject*/

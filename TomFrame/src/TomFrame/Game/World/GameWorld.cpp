@@ -6,13 +6,15 @@
 #include "../Services/TextureManager.h"
 #include "../Components/TransfromComponent.h"
 
-void TomFrame::GameWorld::Update()
+
+void TomFrame::GameWorld::Update(sf::Event event, float deltaTime)
 {
+
 	//Loop through all registered WorldObjects
 	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != m_WorldObjects.end(); it++)
 	{
 		//Call update function on WorldObject
-		(*it)->Update();
+		(*it)->Update(event, deltaTime);
 
 		//Draw WorldObject if it has a sprite
 		sf::Sprite* sprite = (*it)->GetDrawComponent()->GetCurrentSprite();

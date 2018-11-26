@@ -5,6 +5,7 @@
 #include "../Objects/WorldObject.h"
 #include "../../Debug/Logger.h"
 #include "../Services/TextureManager.h"
+#include "SFML/Graphics/RenderStates.hpp"
 #include <SFML//Graphics/RenderWindow.hpp>
 
 namespace TomFrame 
@@ -50,7 +51,7 @@ namespace TomFrame
 		}
 
 		/*Updates and draws all the registered objects*/
-		void Update();
+		void Update(sf::Event even, float deltaTime);
 
 		/*Returns the TextureManager of this world*/
 		virtual TextureManager* GetTextureManager() { return p_TextureManager; }

@@ -1,4 +1,5 @@
 #pragma once
+#include "../../Core.h"
 #include "SFML/System/Vector2.hpp"
 
 namespace TomFrame
@@ -10,10 +11,10 @@ namespace TomFrame
 		~TransformComponent();
 
 		/*Sets a new position to the current position*/
-		void SetPosition(sf::Vector2f newPosition);
+		TOMFRAME_API void SetPosition(sf::Vector2f newPosition);
 
 		/*Moves the current position to a new position given the direction*/
-		void Move(sf::Vector2f direction);
+		TOMFRAME_API void Move(sf::Vector2f direction);
 
 		/*Returns the current position of the owner*/
 		sf::Vector2f GetPosition();

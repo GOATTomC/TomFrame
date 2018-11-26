@@ -19,8 +19,13 @@ namespace TomFrame {
 		sf::RenderWindow window(sf::VideoMode(p_WindowSettings->GetScreenSize().Width, p_WindowSettings->GetScreenSize().Height), p_WindowSettings->GetWindowText());
 		world->SetRenderWindow(&window);
 
+		//Calculate delta time
+		sf::Clock deltaClock;
+
 		while (window.isOpen())
 		{
+			sf::Time deltatime = deltaClock.restart();
+
 			sf::Event event;
 			while (window.pollEvent(event))
 			{
@@ -29,7 +34,7 @@ namespace TomFrame {
 			}
 
 			window.clear();
-			world->Update();
+			world->Update(event, deltatime.asSeconds());
 			window.display();
 		}
 	}

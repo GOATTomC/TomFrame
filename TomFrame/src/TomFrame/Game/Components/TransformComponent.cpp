@@ -12,16 +12,16 @@ TomFrame::TransformComponent::~TransformComponent()
 
 void TomFrame::TransformComponent::SetPosition(sf::Vector2f newPosition)
 {
-
+	m_CurrentPosition = newPosition;
 }
 
 void TomFrame::TransformComponent::Move(sf::Vector2f direction) 
 {
-
+	m_CurrentPosition += direction;
 }
 
 sf::Vector2f TomFrame::TransformComponent::GetPosition()
 {
 	
-	return sf::Vector2f(0.0f, 0.0f);
+	return m_CurrentPosition;
 }
