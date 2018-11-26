@@ -3,7 +3,8 @@
 #include "../Components/DrawComponent.h"
 #include "../../Debug/Logger.h"
 #include <SFML/Graphics.hpp>
-
+#include "../Services/TextureManager.h"
+#include "../Components/TransfromComponent.h"
 
 void TomFrame::GameWorld::Update()
 {
@@ -17,7 +18,8 @@ void TomFrame::GameWorld::Update()
 		sf::Sprite* sprite = (*it)->GetDrawComponent()->GetCurrentSprite();
 		if (sprite != nullptr)
 		{
-			//Draw sprite here
+			sprite->setPosition((*it)->GetTransformComponent()->GetPosition());
+			p_RenderWindow->draw(*sprite);
 		}
 	}
 

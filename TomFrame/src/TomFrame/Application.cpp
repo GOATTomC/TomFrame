@@ -17,8 +17,7 @@ namespace TomFrame {
 	void Application::Run(GameWorld* world)
 	{
 		sf::RenderWindow window(sf::VideoMode(p_WindowSettings->GetScreenSize().Width, p_WindowSettings->GetScreenSize().Height), p_WindowSettings->GetWindowText());
-		sf::CircleShape shape(100.f);
-		shape.setFillColor(sf::Color::Green);
+		world->SetRenderWindow(&window);
 
 		while (window.isOpen())
 		{
@@ -31,7 +30,6 @@ namespace TomFrame {
 
 			window.clear();
 			world->Update();
-			window.draw(shape);
 			window.display();
 		}
 	}

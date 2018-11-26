@@ -17,12 +17,14 @@ namespace TomFrame
 	/*The client will never see what the dll is doing under the hood*/
 
 	class WorldObject;
+	class TextureManager;
 	class TOMFRAME_API World
 	{
 	public:
 
 		virtual void RegisterObject(WorldObject* object) = 0;
 		virtual void CreateAndRegister(WorldObject* object, std::string spritePath, sf::Vector2f spawnLocation) = 0;
+		virtual TextureManager* GetTextureManager() = 0;
 	};
 
 }

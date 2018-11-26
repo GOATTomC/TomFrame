@@ -27,6 +27,10 @@ namespace TomFrame
 		DrawComponent* GetDrawComponent() { return p_DrawComponent; }
 		/*Returns the TransfromComponent attached to the WorldObject*/
 		TransformComponent* GetTransformComponent() { return p_TransformComponent; }
+		/*Returns the world where the object is in*/
+		World* GetWorld() { return p_World; }
+		/*Sets the world where the object is in*/
+		void SetWorld(World* world) { p_World = world; }
 
 		/*Initialize function that the game calls on creation of an object*/
 		TOMFRAME_API void Initialise(sf::Vector2f spawnPosition, std::string spriteLocation);

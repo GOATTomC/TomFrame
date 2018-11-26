@@ -21,6 +21,10 @@
 #include "TomFrame/Game/Objects/WorldObject.h"
 //-------------------------------------
 
+//----------Services-------------------
+#include "TomFrame/Game/Services/TextureManager.h"
+//-------------------------------------
+
 
 //----------SFML-----------------------
 #include <SFML/System/Vector2.hpp>

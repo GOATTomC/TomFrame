@@ -8,10 +8,12 @@ namespace sf
 
 namespace TomFrame
 {
+	class WorldObject;
+
 	class DrawComponent
 	{
 	public:
-		DrawComponent();
+		DrawComponent(WorldObject* owner);
 		~DrawComponent();
 
 		/*Returns the current sprite*/
@@ -22,6 +24,8 @@ namespace TomFrame
 
 	private:
 		sf::Sprite* p_CurrentSprite = nullptr;
+
+		WorldObject* p_Owner = nullptr;
 
 	};
 }

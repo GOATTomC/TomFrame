@@ -4,12 +4,27 @@
 #include <SFML/System/Vector2.hpp>
 #include "../Objects/WorldObject.h"
 #include "../../Debug/Logger.h"
+#include "../Services/TextureManager.h"
+#include <SFML//Graphics/RenderWindow.hpp>
 
 namespace TomFrame 
 {
+
 	class GameWorld : public World 
 	{
 	public:
+		GameWorld()
+		{
+			p_TextureManager = new TextureManager();
+		}
+
+		~GameWorld()
+		{
+			delete p_TextureManager;
+		}
+
+		void SetRenderWindow(sf::RenderWindow* window) { p_RenderWindow = window; }
+
 		/*Registers an object to this world so it can be updated*/
 		virtual void RegisterObject(WorldObject* object) override
 		{
@@ -29,6 +44,7 @@ namespace TomFrame
 				TomFrame::Debug::Logger::LogError("object is nullptr. FILE: GameWorld.h, LINE: 29");
 			}
 
+			object->SetWorld(this);
 			object->Initialise(spawnLocation, spritePath);
 			RegisterObject(object);
 		}
@@ -36,7 +52,13 @@ namespace TomFrame
 		/*Updates and draws all the registered objects*/
 		void Update();
 
+
+		virtual TextureManager* GetTextureManager() { return p_TextureManager; }
+
 	private:
+		sf::RenderWindow* p_RenderWindow = nullptr;
+
 		std::vector<WorldObject*> m_WorldObjects;
+		TextureManager* p_TextureManager;
 	};
 }
