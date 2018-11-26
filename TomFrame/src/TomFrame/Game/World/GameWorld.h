@@ -52,7 +52,7 @@ namespace TomFrame
 		/*Updates and draws all the registered objects*/
 		void Update();
 
-
+		/*Returns the TextureManager of this world*/
 		virtual TextureManager* GetTextureManager() { return p_TextureManager; }
 
 	private:
