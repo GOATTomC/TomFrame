@@ -14,6 +14,7 @@ namespace TomFrame
 
 			/*Prints a message to the console*/
 			static void Log(std::string output);
+			static void Log(float output);
 
 			/*Prints an error message to the console and writes it to an error log*/
 			static void LogError(std::string output);

@@ -1,11 +1,6 @@
 #pragma once
 #include <TomFrameObjects.h>
 
-namespace sf
-{
-	class RenderWindow;
-}
-
 namespace TomFrame
 {
 	class WorldObject;
@@ -19,7 +14,10 @@ public:
 
 	
 	/*Overrided Update function called by framework*/
-	virtual void Update(sf::Event event, float deltaTime) override;
+	virtual void Update(float deltaTime) override;
+
+private:
+	void Shoot();
 
 
 };

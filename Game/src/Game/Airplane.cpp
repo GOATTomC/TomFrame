@@ -1,19 +1,21 @@
 #include "Airplane.h"
 #include "TomFrame/Game/Components/TransfromComponent.h"
+#include "Bullet.h"
+#include "TomFrame/Game/World/World.h"
+#include "TomFrame/Game/Services/InputManager.h"
 
 
 
-void Airplane::Update(sf::Event event, float deltaTime)
+void Airplane::Update(float deltaTime)
 {
-	//If plane moves down
-	//TODO MOVE INPUT TO DLL INSTEAD OF HAVING TO LINK TO SFML FROM GAME DIR
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	if (GetWorld()->GetInputManager()->GetKeyDown(sf::Keyboard::Space))
 	{
-		GetTransformComponent()->Move(sf::Vector2f(0.0f, 200.0f) * deltaTime);
+		Shoot();
 	}
-	//If plane moves up
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		GetTransformComponent()->Move(sf::Vector2f(0.0f, -200.0f) * deltaTime);
-	}
+}
+
+void Airplane::Shoot()
+{
+	Bullet* bullet = new Bullet("Test Bullet");
+	GetWorld()->CreateAndRegister(bullet, "Images/Bullet.png", GetTransformComponent()->GetPosition());
 }

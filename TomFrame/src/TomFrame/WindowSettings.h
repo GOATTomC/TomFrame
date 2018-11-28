@@ -35,6 +35,11 @@ namespace TomFrame
 		/*Gets the applications window text*/
 		const char* GetWindowText();
 
+		/*Sets if the application should be fullscreen*/
+		void SetFullScreen(bool value);
+		/*Returns if the application is fullscreen*/
+		bool GetFullScreen();
+
 		/*Sets the applications screen size on the start of the application*/
 		void SetScreenSize(int width, int height);
 		/*Gets the applications screen size*/
@@ -45,5 +50,7 @@ namespace TomFrame
 		const char* m_WindowText;
 		/*Holds the application window size*/
 		ScreenSize m_ScreenSize;
+
+		bool m_IsFullScreen = false;
 	};
 }

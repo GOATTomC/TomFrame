@@ -22,6 +22,5 @@ void TomFrame::TransformComponent::Move(sf::Vector2f direction)
 
 sf::Vector2f TomFrame::TransformComponent::GetPosition()
 {
-	
 	return m_CurrentPosition;
 }

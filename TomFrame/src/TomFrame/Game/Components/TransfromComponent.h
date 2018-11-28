@@ -17,7 +17,7 @@ namespace TomFrame
 		TOMFRAME_API void Move(sf::Vector2f direction);
 
 		/*Returns the current position of the owner*/
-		sf::Vector2f GetPosition();
+		TOMFRAME_API sf::Vector2f GetPosition();
 
 	private:
 		sf::Vector2f m_CurrentPosition;

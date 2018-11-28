@@ -1,7 +1,7 @@
 #pragma once
+#include "../../Core.h"
 #include <string>
 #include <map>
-#include "../../Core.h"
 
 namespace sf
 {

@@ -21,6 +21,16 @@ const char* TomFrame::WindowSettings::GetWindowText()
 	return m_WindowText;
 }
 
+void TomFrame::WindowSettings::SetFullScreen(bool value)
+{
+	m_IsFullScreen = value;
+}
+
+bool TomFrame::WindowSettings::GetFullScreen()
+{
+	return m_IsFullScreen;
+}
+
 void TomFrame::WindowSettings::SetScreenSize(int width, int height)
 {
 	m_ScreenSize = ScreenSize(width, height);

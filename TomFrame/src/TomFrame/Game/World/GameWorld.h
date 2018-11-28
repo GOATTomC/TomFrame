@@ -11,6 +11,8 @@
 namespace TomFrame 
 {
 
+	class InputManager;
+
 	class GameWorld : public World 
 	{
 	public:
@@ -22,9 +24,11 @@ namespace TomFrame
 		~GameWorld()
 		{
 			delete p_TextureManager;
+			delete p_InputManager;
 		}
 
 		void SetRenderWindow(sf::RenderWindow* window) { p_RenderWindow = window; }
+		void SetInputManager(InputManager* inputManager);
 
 		/*Registers an object to this world so it can be updated*/
 		virtual void RegisterObject(WorldObject* object) override
@@ -34,7 +38,7 @@ namespace TomFrame
 				TomFrame::Debug::Logger::LogError("object is nullptr. FILE: GameWorld.cpp, LINE: 9");
 				return;
 			}
-			m_WorldObjects.push_back(object);
+			m_QeuedWorldObject.push_back(object);
 		}
 
 		/*Initializes an object and registers it to this world*/
@@ -51,15 +55,24 @@ namespace TomFrame
 		}
 
 		/*Updates and draws all the registered objects*/
-		void Update(sf::Event even, float deltaTime);
+		void Update(float deltaTime);
+
+		/*Put the queued WorldObjects into the game*/
+		void DeqeueWorldObjects();
 
 		/*Returns the TextureManager of this world*/
 		virtual TextureManager* GetTextureManager() { return p_TextureManager; }
+
+		/*Returns the Input Manager of this world*/
+		virtual InputManager* GetInputManager() { return p_InputManager; }
 
 	private:
 		sf::RenderWindow* p_RenderWindow = nullptr;
 
 		std::vector<WorldObject*> m_WorldObjects;
+		//We store all in game spawned WorldObjects here until new frame
+		std::vector<WorldObject*> m_QeuedWorldObject;
 		TextureManager* p_TextureManager;
+		InputManager* p_InputManager = nullptr;
 	};
 }

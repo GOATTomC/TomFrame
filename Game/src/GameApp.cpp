@@ -1,5 +1,6 @@
 #include <TomFrame.h>
 #include "Game/Airplane.h"
+#include "Game/Bullet.h"
 
 class Game : public TomFrame::Application 
 {
@@ -8,8 +9,13 @@ public:
 	{
 		//Set the window settings here before booting it
 		p_WindowSettings = new TomFrame::WindowSettings();
+		//Full window on screen resolution
 		p_WindowSettings->SetWindowText("Shooter");
+		//p_WindowSettings->SetFullScreen(true);
+
+		/*Uncomment this for custom resolution non full screen*/
 		p_WindowSettings->SetScreenSize(800, 600);
+		p_WindowSettings->SetFullScreen(false);
 
 		//Create all the objects the client wants at the start of the game
 		CreateGame(world);
@@ -26,8 +32,8 @@ public:
 
 void Game::CreateGame(TomFrame::World* world)
 {
+	//Create player
 	Airplane* airplane = new Airplane("Player Airplane");
-	//airplane->Initialise(sf::Vector2f(0.0f, 0.0f), "Airplane.txt");
 	world->CreateAndRegister(airplane, "Images/Spaceship1Small.png", sf::Vector2f(0.0f, 0.0f));
 
 	TomFrame::Debug::Logger::Log("Custom game created");

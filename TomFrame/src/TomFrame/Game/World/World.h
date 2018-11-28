@@ -18,6 +18,7 @@ namespace TomFrame
 
 	class WorldObject;
 	class TextureManager;
+	class InputManager;
 	class TOMFRAME_API World
 	{
 	public:
@@ -25,6 +26,7 @@ namespace TomFrame
 		virtual void RegisterObject(WorldObject* object) = 0;
 		virtual void CreateAndRegister(WorldObject* object, std::string spritePath, sf::Vector2f spawnLocation) = 0;
 		virtual TextureManager* GetTextureManager() = 0;
+		virtual InputManager* GetInputManager() = 0;
 	};
 
 }

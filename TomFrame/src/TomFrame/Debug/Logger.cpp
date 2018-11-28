@@ -11,6 +11,11 @@ void TomFrame::Debug::Logger::Log(std::string output)
 	std::cout << output << std::endl;
 }
 
+void TomFrame::Debug::Logger::Log(float output)
+{
+	std::cout << output << std::endl;
+}
+
 void TomFrame::Debug::Logger::LogError(std::string output)
 {
 	//Print message to console
