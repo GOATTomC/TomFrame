@@ -21,6 +21,12 @@ namespace TomFrame
 		//Checks if the given key has been pressed down
 		TOMFRAME_API bool GetKeyDown(sf::Keyboard::Key key);
 
+		/*Check if the given key is released*/
+		TOMFRAME_API bool GetKeyUp(sf::Keyboard::Key key);
+
+		/*Check if the given key is being pressed*/
+		TOMFRAME_API bool GetKey(sf::Keyboard::Key key);
+
 	private:
 		sf::RenderWindow* p_RenderWindow = nullptr;
 		std::vector<sf::Keyboard::Key> m_CurrentPressedObjects;
