@@ -8,9 +8,20 @@
 
 void Airplane::Update(float deltaTime)
 {
+	//Shoot
 	if (GetWorld()->GetInputManager()->GetKeyDown(sf::Keyboard::Space))
 	{
 		Shoot();
+	}
+
+	//Moving
+	if (GetWorld()->GetInputManager()->GetKey(sf::Keyboard::S))//Down
+	{
+		GetTransformComponent()->Move(sf::Vector2f(0.0f, SPEED) * deltaTime);
+	}
+	if (GetWorld()->GetInputManager()->GetKey(sf::Keyboard::W))//Up
+	{
+		GetTransformComponent()->Move(sf::Vector2f(0.0f, -SPEED) * deltaTime);
 	}
 }
 

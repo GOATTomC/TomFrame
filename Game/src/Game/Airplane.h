@@ -19,5 +19,7 @@ public:
 private:
 	void Shoot();
 
+	const float SPEED = 100.0f;
+
 
 };
