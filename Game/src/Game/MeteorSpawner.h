@@ -9,4 +9,8 @@ public:
 
 	virtual void Update(float deltaTime) override;
 
+private:
+	float m_SpawnTimer = 4;
+	float m_TimePassed = 0;
+
 };
