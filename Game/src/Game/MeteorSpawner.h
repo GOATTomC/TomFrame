@@ -13,4 +13,6 @@ private:
 	float m_SpawnTimer = 4;
 	float m_TimePassed = 0;
 
+	const float SPAWNPOSITION_X = 1000;
+
 };

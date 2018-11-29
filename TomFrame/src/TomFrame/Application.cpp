@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Debug/Logger.h"
 #include "Game/Services/InputManager.h"
+#include <ctime>
 
 namespace TomFrame {
 
@@ -35,6 +36,9 @@ namespace TomFrame {
 
 		//Calculate delta time
 		sf::Clock deltaClock;
+
+		//Set the random seed for the Random class
+		srand(time(nullptr));
 
 
 		while (window->isOpen())
