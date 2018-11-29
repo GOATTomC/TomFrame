@@ -20,6 +20,7 @@
     <ClInclude Include="src\TomFrame\Game\Components\DrawComponent.h" />
     <ClInclude Include="src\TomFrame\Game\Components\TransfromComponent.h" />
     <ClInclude Include="src\TomFrame\Game\Objects\WorldObject.h" />
+    <ClInclude Include="src\TomFrame\Game\Services\Random.h" />
     <ClInclude Include="src\TomFrame\Game\Services\TextureManager.h" />
     <ClInclude Include="src\TomFrame\Game\Services\InputManager.h" />
     <ClInclude Include="src\TomFrame\Game\World\GameWorld.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="src\TomFrame\Game\Components\DrawComponent.cpp" />
     <ClCompile Include="src\TomFrame\Game\Components\TransformComponent.cpp" />
     <ClCompile Include="src\TomFrame\Game\Objects\WorldObject.cpp" />
+    <ClCompile Include="src\TomFrame\Game\Services\Random.cpp" />
     <ClCompile Include="src\TomFrame\Game\Services\TextureManager.cpp" />
     <ClCompile Include="src\TomFrame\Game\Services\InputManager.cpp" />
     <ClCompile Include="src\TomFrame\Game\World\GameWorld.cpp" />
