@@ -89,10 +89,12 @@
     <ClCompile Include="src\GameApp.cpp" />
     <ClCompile Include="src\Game\Airplane.cpp" />
     <ClCompile Include="src\Game\Bullet.cpp" />
+    <ClCompile Include="src\Game\MeteorSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\Airplane.h" />
     <ClInclude Include="src\Game\Bullet.h" />
+    <ClInclude Include="src\Game\MeteorSpawner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

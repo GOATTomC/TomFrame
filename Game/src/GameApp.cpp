@@ -1,6 +1,6 @@
 #include <TomFrame.h>
 #include "Game/Airplane.h"
-#include "Game/Bullet.h"
+#include "Game/MeteorSpawner.h"
 
 class Game : public TomFrame::Application 
 {
@@ -35,6 +35,9 @@ void Game::CreateGame(TomFrame::World* world)
 	//Create player
 	Airplane* airplane = new Airplane("Player Airplane");
 	world->CreateAndRegister(airplane, "Images/Spaceship1Small.png", sf::Vector2f(0.0f, 0.0f));
+
+	MeteorSpawner* meteorSpawner = new MeteorSpawner("Meteor Spawner");
+	world->CreateAndRegister(meteorSpawner, "", sf::Vector2f(0.0f, 0.0f));
 
 	TomFrame::Debug::Logger::Log("Custom game created");
 }

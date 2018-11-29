@@ -29,6 +29,9 @@ TomFrame::DrawComponent::~DrawComponent()
 
 void TomFrame::DrawComponent::SetSprite(std::string spriteLocation)
 {
-	p_CurrentSprite->setTexture(*p_Owner->GetWorld()->GetTextureManager()->GetTexture(spriteLocation));
+	if (p_Owner->GetWorld()->GetTextureManager()->GetTexture(spriteLocation) != nullptr)
+	{
+		p_CurrentSprite->setTexture(*p_Owner->GetWorld()->GetTextureManager()->GetTexture(spriteLocation));
+	}
 }
 

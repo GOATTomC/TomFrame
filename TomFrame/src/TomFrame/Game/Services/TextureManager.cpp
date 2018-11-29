@@ -17,7 +17,7 @@ sf::Texture* TomFrame::TextureManager::GetTexture(std::string spritePath)
 {
 	if (spritePath == "")
 	{
-		TomFrame::Debug::Logger::LogError("spritePath is invalid. FILE: TextureManager.cpp, LINE: 9");
+		//We don't log error but return nullptr because user can do this on purpose for empty WorldObjects (WorldObjects without sprite)
 		return nullptr;
 	}
 

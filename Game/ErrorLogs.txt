@@ -6,3 +6,27 @@ ERROR: Texture couldn't be loaded from path: Images/Spaceship1Small.png FILE: Te
 
 ERROR: couldn't find texture at path: Images/Spaceship1Small.png possible cause: Invalid file path, please check your path. FILE: TextureManager.cpp, LINE: 29DATE OF ERROR: Mon Nov 26 18:41:39 2018
 
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 09:59:40 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:01:58 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:03:34 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:03:58 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:04:28 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:05:36 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:07:01 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:07:21 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:09:33 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:10:51 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:11:19 2018
+
+ERROR: spritePath is invalid. FILE: TextureManager.cpp, LINE: 9DATE OF ERROR: Thu Nov 29 10:12:32 2018
+
