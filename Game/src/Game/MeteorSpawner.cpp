@@ -13,7 +13,8 @@ void MeteorSpawner::Update(float deltaTime)
 	{
 		//Spawn meteor
 		Meteor* meteor = new Meteor("Meteor");
-		GetWorld()->CreateAndRegister(meteor, "Images/meteor.png", sf::Vector2f(0.0f, 0.0f));
+		float randomY = TomFrame::Static::Random::GetRandom(0.0f, 500.0f);
+		GetWorld()->CreateAndRegister(meteor, "Images/meteor.png", sf::Vector2f(0.0f, randomY));
 
 		//Reset timer
 		m_TimePassed = 0;

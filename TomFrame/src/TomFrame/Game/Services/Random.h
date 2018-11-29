@@ -7,9 +7,11 @@ namespace TomFrame
 	{
 		class TOMFRAME_API Random
 		{
+		private:
 			Random();
 			~Random();
 
+		public:
 			/*returns a "Random" int between min(included) and max(excluded)*/
 			static int GetRandom(int min, int max);
 			/*returns a "Random" float between min(included) and max(excluded)*/
