@@ -18,8 +18,10 @@
     <ClInclude Include="src\TomFrameObjects.h" />
     <ClInclude Include="src\TomFrame\EntryPoint.h" />
     <ClInclude Include="src\TomFrame\Game\Components\DrawComponent.h" />
+    <ClInclude Include="src\TomFrame\Game\Components\PhysicsComponent.h" />
     <ClInclude Include="src\TomFrame\Game\Components\TransfromComponent.h" />
     <ClInclude Include="src\TomFrame\Game\Objects\WorldObject.h" />
+    <ClInclude Include="src\TomFrame\Game\Services\PhysicsManager.h" />
     <ClInclude Include="src\TomFrame\Game\Services\Random.h" />
     <ClInclude Include="src\TomFrame\Game\Services\TextureManager.h" />
     <ClInclude Include="src\TomFrame\Game\Services\InputManager.h" />
@@ -31,8 +33,10 @@
     <ClCompile Include="src\TomFrame\Application.cpp" />
     <ClCompile Include="src\TomFrame\Debug\Logger.cpp" />
     <ClCompile Include="src\TomFrame\Game\Components\DrawComponent.cpp" />
+    <ClCompile Include="src\TomFrame\Game\Components\PhysicsComponent.cpp" />
     <ClCompile Include="src\TomFrame\Game\Components\TransformComponent.cpp" />
     <ClCompile Include="src\TomFrame\Game\Objects\WorldObject.cpp" />
+    <ClCompile Include="src\TomFrame\Game\Services\PhysicsManager.cpp" />
     <ClCompile Include="src\TomFrame\Game\Services\Random.cpp" />
     <ClCompile Include="src\TomFrame\Game\Services\TextureManager.cpp" />
     <ClCompile Include="src\TomFrame\Game\Services\InputManager.cpp" />
