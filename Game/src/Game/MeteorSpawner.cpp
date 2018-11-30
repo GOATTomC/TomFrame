@@ -1,6 +1,7 @@
 #include "MeteorSpawner.h"
 #include "Meteor.h"
 #include "TomFrame/Game/World/World.h"
+#include "TomFrame/WindowSettings.h"
 
 
 void MeteorSpawner::Update(float deltaTime)
@@ -14,7 +15,7 @@ void MeteorSpawner::Update(float deltaTime)
 		//Spawn meteor
 		Meteor* meteor = new Meteor("Meteor");
 		float randomY = TomFrame::Static::Random::GetRandom(0.0f, 600.f);
-		GetWorld()->CreateAndRegister(meteor, "Images/meteor.png", sf::Vector2f(SPAWNPOSITION_X, randomY));
+		GetWorld()->CreateAndRegister(meteor, "Images/meteor.png", sf::Vector2f(SPAWNPOSITION_X + GetWorld()->GetWindowSettings()->GetScreenSize().Width, randomY));
 
 		//Reset timer
 		m_TimePassed = 0;

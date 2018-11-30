@@ -23,6 +23,7 @@ namespace TomFrame {
 		if (p_WindowSettings->GetFullScreen())
 		{
 			window = new sf::RenderWindow(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), p_WindowSettings->GetWindowText(), sf::Style::Fullscreen);
+			p_WindowSettings->SetScreenSize(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height);
 		}
 		else
 		{
@@ -33,6 +34,7 @@ namespace TomFrame {
 		//Create the input manager
 		TomFrame::InputManager* inputManager = new TomFrame::InputManager(window);
 		world->SetInputManager(inputManager);
+		world->SetWindowSettings(p_WindowSettings);
 
 		//Calculate delta time
 		sf::Clock deltaClock;

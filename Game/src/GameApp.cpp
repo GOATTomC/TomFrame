@@ -11,11 +11,11 @@ public:
 		p_WindowSettings = new TomFrame::WindowSettings();
 		//Full window on screen resolution
 		p_WindowSettings->SetWindowText("Shooter");
-		//p_WindowSettings->SetFullScreen(true);
+		p_WindowSettings->SetFullScreen(true);
 
 		/*Uncomment this for custom resolution non full screen*/
-		p_WindowSettings->SetScreenSize(800, 600);
-		p_WindowSettings->SetFullScreen(false);
+		//p_WindowSettings->SetScreenSize(800, 600);
+		//p_WindowSettings->SetFullScreen(false);
 
 		//Create all the objects the client wants at the start of the game
 		CreateGame(world);

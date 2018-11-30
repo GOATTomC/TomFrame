@@ -29,6 +29,7 @@ namespace TomFrame
 
 		void SetRenderWindow(sf::RenderWindow* window) { p_RenderWindow = window; }
 		void SetInputManager(InputManager* inputManager);
+		void SetWindowSettings(WindowSettings* windowSettings);
 
 		/*Registers an object to this world so it can be updated*/
 		virtual void RegisterObject(WorldObject* object) override
@@ -66,6 +67,9 @@ namespace TomFrame
 		/*Returns the Input Manager of this world*/
 		virtual InputManager* GetInputManager() { return p_InputManager; }
 
+		/*Return the window settings of the application*/
+		virtual WindowSettings* GetWindowSettings() { return p_WindowSettings; }
+
 	private:
 		sf::RenderWindow* p_RenderWindow = nullptr;
 
@@ -74,5 +78,6 @@ namespace TomFrame
 		std::vector<WorldObject*> m_QeuedWorldObject;
 		TextureManager* p_TextureManager;
 		InputManager* p_InputManager = nullptr;
+		WindowSettings* p_WindowSettings = nullptr;
 	};
 }

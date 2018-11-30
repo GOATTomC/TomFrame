@@ -6,6 +6,7 @@
 #include "../Services/TextureManager.h"
 #include "../Components/TransfromComponent.h"
 #include "../Services/InputManager.h"
+#include "../../WindowSettings.h"
 
 
 void TomFrame::GameWorld::SetInputManager(InputManager* inputManager)
@@ -15,6 +16,15 @@ void TomFrame::GameWorld::SetInputManager(InputManager* inputManager)
 		TomFrame::Debug::Logger::LogError("inputManager is nullptr. FILE: GameWorld.cpp");
 	}
 	p_InputManager = inputManager;
+}
+
+void TomFrame::GameWorld::SetWindowSettings(WindowSettings* windowSettings)
+{
+	if (windowSettings == nullptr)
+	{
+		TomFrame::Debug::Logger::LogError("windowSettings is nullptr. FILE: GameWorld.cpp");
+	}
+	p_WindowSettings = windowSettings;
 }
 
 void TomFrame::GameWorld::Update(float deltaTime)
