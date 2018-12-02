@@ -10,6 +10,7 @@ class Airplane : public TomFrame::WorldObject
 {
 public:
 	Airplane(std::string name) : TomFrame::WorldObject(name){}
+	Airplane(std::string name, CollisionType collisionType) : TomFrame::WorldObject(name, collisionType) {}
 	~Airplane();
 
 	

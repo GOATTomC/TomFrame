@@ -9,6 +9,12 @@
 #include "../../WindowSettings.h"
 
 
+TomFrame::GameWorld::GameWorld()
+{
+	p_TextureManager = new TextureManager();
+	p_PhysicsManager = new PhysicsManager();
+}
+
 void TomFrame::GameWorld::SetInputManager(InputManager* inputManager)
 {
 	if (inputManager == nullptr)

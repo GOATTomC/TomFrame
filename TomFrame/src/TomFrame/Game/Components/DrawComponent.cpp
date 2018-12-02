@@ -27,6 +27,16 @@ TomFrame::DrawComponent::~DrawComponent()
 
 }
 
+sf::Vector2f TomFrame::DrawComponent::GetSpriteSize()
+{
+	//TODO Add scale calculation for size
+
+	sf::Vector2f size;
+	size.x = p_CurrentSprite->getTexture()->getSize().x;
+	size.y = p_CurrentSprite->getTexture()->getSize().y;
+	return size;
+}
+
 void TomFrame::DrawComponent::SetSprite(std::string spriteLocation)
 {
 	if (p_Owner->GetWorld()->GetTextureManager()->GetTexture(spriteLocation) != nullptr)

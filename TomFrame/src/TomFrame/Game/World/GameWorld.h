@@ -1,10 +1,12 @@
 #pragma once
+#include "../../Core.h"
 #include "World.h"
 #include <vector>
 #include <SFML/System/Vector2.hpp>
 #include "../Objects/WorldObject.h"
 #include "../../Debug/Logger.h"
 #include "../Services/TextureManager.h"
+#include "../Services/PhysicsManager.h"
 #include "SFML/Graphics/RenderStates.hpp"
 #include <SFML//Graphics/RenderWindow.hpp>
 
@@ -16,15 +18,14 @@ namespace TomFrame
 	class GameWorld : public World 
 	{
 	public:
-		GameWorld()
-		{
-			p_TextureManager = new TextureManager();
-		}
+		TOMFRAME_API GameWorld();
+
 
 		~GameWorld()
 		{
 			delete p_TextureManager;
 			delete p_InputManager;
+			delete p_PhysicsManager;
 		}
 
 		void SetRenderWindow(sf::RenderWindow* window) { p_RenderWindow = window; }
@@ -53,6 +54,13 @@ namespace TomFrame
 			object->SetWorld(this);
 			object->Initialise(spawnLocation, spritePath);
 			RegisterObject(object);
+
+			//If WorldObject has a PhysicsComponent add it in the Physicloop
+			if (object->GetPhysicsComponent() != nullptr)
+			{
+				//Add in physicLoop
+				p_PhysicsManager->RegisterObject(object);
+			}
 		}
 
 		/*Updates and draws all the registered objects*/
@@ -79,5 +87,6 @@ namespace TomFrame
 		TextureManager* p_TextureManager;
 		InputManager* p_InputManager = nullptr;
 		WindowSettings* p_WindowSettings = nullptr;
+		PhysicsManager* p_PhysicsManager = nullptr;
 	};
 }

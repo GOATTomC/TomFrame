@@ -33,7 +33,7 @@ public:
 void Game::CreateGame(TomFrame::World* world)
 {
 	//Create player
-	Airplane* airplane = new Airplane("Player Airplane");
+	Airplane* airplane = new Airplane("Player Airplane", CollisionType::Box);
 	world->CreateAndRegister(airplane, "Images/Spaceship1Small.png", sf::Vector2f(0.0f, 0.0f));
 
 	MeteorSpawner* meteorSpawner = new MeteorSpawner("Meteor Spawner");
