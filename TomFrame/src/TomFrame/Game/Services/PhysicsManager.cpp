@@ -21,7 +21,7 @@ void TomFrame::PhysicsManager::RegisterObject(WorldObject * object)
 		return;
 	}
 
-	m_QeuedObjects.push_back(object);
+ 	m_QeuedObjects.push_back(object);
 }
 
 void TomFrame::PhysicsManager::DeqeueWorldObjects()

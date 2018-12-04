@@ -51,6 +51,9 @@ void TomFrame::GameWorld::Update(float deltaTime)
 		}
 	}
 
+	//Update the physics
+	p_PhysicsManager->Update();
+
 	//Include queued objects into game
 	DeqeueWorldObjects();
 }
