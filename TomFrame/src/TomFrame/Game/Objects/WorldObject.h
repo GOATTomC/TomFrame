@@ -56,6 +56,9 @@ namespace TomFrame
 		/*Initialize function that the game calls on creation of an object*/
 		TOMFRAME_API void Initialise(sf::Vector2f spawnPosition, std::string spriteLocation);
 
+		/*Gets called when the object is involved in a collision*/
+		TOMFRAME_API virtual void OnCollisionEnter(WorldObject* other);
+
 		/*Required update function for all inherited classes from this WorldObject*/
 		virtual void Update(float deltaTime) = 0;
 

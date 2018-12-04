@@ -17,6 +17,9 @@ public:
 	/*Overrided Update function called by framework*/
 	virtual void Update(float deltaTime) override;
 
+	/*Overrides OnCollisionEnter function called by framework*/
+	virtual void OnCollisionEnter(WorldObject* other) override;
+
 private:
 	void Shoot();
 

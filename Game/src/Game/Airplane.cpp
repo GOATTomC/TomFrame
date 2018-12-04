@@ -25,6 +25,11 @@ void Airplane::Update(float deltaTime)
 	}
 }
 
+void Airplane::OnCollisionEnter(WorldObject* other)
+{
+
+}
+
 void Airplane::Shoot()
 {
 	Bullet* bullet = new Bullet("Test Bullet");

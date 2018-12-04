@@ -39,7 +39,7 @@ namespace TomFrame
 
 		//The size of the current collision box
 		sf::Vector2f m_CollisionSize;
-		//The radius of the current collision cirlce
+		//The radius of the current collision circle
 		float m_CollisionRadius = 0.0f;
 	};
 }

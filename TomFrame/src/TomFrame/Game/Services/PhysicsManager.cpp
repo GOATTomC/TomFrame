@@ -48,6 +48,7 @@ void TomFrame::PhysicsManager::Update()
 	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != m_WorldObjects.end(); it++)
 	{
 		//Check for collisions
+
 	}
 
 	DeqeueWorldObjects();

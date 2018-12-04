@@ -50,3 +50,8 @@ void TomFrame::WorldObject::Initialise(sf::Vector2f spawnPosition, std::string s
 	TomFrame::Debug::Logger::Log("Initialized WorldObject with the sprite: " + spriteLocation);
 }
 
+void TomFrame::WorldObject::OnCollisionEnter(WorldObject* other)
+{
+
+}
+
