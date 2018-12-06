@@ -56,6 +56,8 @@ void TomFrame::GameWorld::Update(float deltaTime)
 
 	//Include queued objects into game
 	DeqeueWorldObjects();
+	//Delete queued objects from game
+	DeleteObjects();
 }
 
 void TomFrame::GameWorld::DeqeueWorldObjects()
@@ -75,6 +77,30 @@ void TomFrame::GameWorld::DeqeueWorldObjects()
 
 	//Clear the queued list
 	m_QeuedWorldObject.clear();
+}
+
+TOMFRAME_API void TomFrame::GameWorld::DestroyWorldObject(WorldObject * object)
+{
+	m_QueueDeleteWorldObject.push_back(object);
+	p_PhysicsManager->DeleteObject(object);
+}
+
+void TomFrame::GameWorld::DeleteObjects()
+{
+	std::vector<TomFrame::WorldObject*>::reverse_iterator end = m_QueueDeleteWorldObject.rend();
+
+	//Loop through all WorldObjects
+	for (std::vector<TomFrame::WorldObject*>::reverse_iterator it = m_QueueDeleteWorldObject.rbegin(); it != end; it++) 
+	{
+		//Delete the object from the game loop
+		std::remove(m_WorldObjects.begin(), m_WorldObjects.end(), *it);
+
+		//Delete the object from memory
+		delete *it;
+	}
+
+	//Clear the queued WorldObjects for deletion
+	m_QueueDeleteWorldObject.clear();
 }
 
 //TODO DELETE ALL WORLDOBJECTS AFTER GAME END

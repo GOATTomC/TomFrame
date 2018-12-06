@@ -14,6 +14,8 @@ namespace TomFrame
 
 		/*Registers an object to the physicsManager*/
 		void RegisterObject(WorldObject* object);
+		/*Puts a WorldObject in to the deletion queue*/
+		void DeleteObject(WorldObject* object);
 
 		/*Updates all the physics*/
 		void Update();
@@ -22,6 +24,8 @@ namespace TomFrame
 	private:
 		/*Deqeues the qeued objects*/
 		void DeqeueWorldObjects();
+		/*Deletes the queued objects*/
+		void DeleteObjects();
 
 		/*Main Check Collision function decides how to check for collision*/
 		void CheckCollision(CollisionType thisType, WorldObject* thisObject, CollisionType otherType, WorldObject* otherObject) const;
@@ -31,5 +35,6 @@ namespace TomFrame
 
 		std::vector<WorldObject*> m_WorldObjects;
 		std::vector<WorldObject*> m_QeuedObjects;
+		std::vector<WorldObject*> m_QeuedDeleteObjects;
 	};
 }

@@ -2,7 +2,7 @@
 #include "../Objects/WorldObject.h"
 #include "../Components/TransfromComponent.h"
 #include "../../Debug/Logger.h"
-
+#include <algorithm>
 
 TomFrame::PhysicsManager::PhysicsManager()
 {
@@ -25,6 +25,17 @@ void TomFrame::PhysicsManager::RegisterObject(WorldObject * object)
  	m_QeuedObjects.push_back(object);
 }
 
+void TomFrame::PhysicsManager::DeleteObject(WorldObject * object)
+{
+	if (object == nullptr)
+	{
+		TomFrame::Debug::Logger::LogError("object is nullptr. FILE: PhysicsManager.cpp");
+		return;
+	}
+
+	m_QeuedDeleteObjects.push_back(object);
+}
+
 void TomFrame::PhysicsManager::DeqeueWorldObjects()
 {
 	//Loop through queued objects if it is not 0
@@ -42,6 +53,21 @@ void TomFrame::PhysicsManager::DeqeueWorldObjects()
 
 	//Clear the queued list
 	m_QeuedObjects.clear();
+}
+
+void TomFrame::PhysicsManager::DeleteObjects()
+{
+	std::vector<TomFrame::WorldObject*>::reverse_iterator end = m_QeuedDeleteObjects.rend();
+
+	//Loop through all WorldObjects
+	for (std::vector<TomFrame::WorldObject*>::reverse_iterator it = m_QeuedDeleteObjects.rbegin(); it != end; it++)
+	{
+		//Delete the object from the game loop
+		std::remove(m_WorldObjects.begin(), m_WorldObjects.end(), *it);
+	}
+
+	//Clear the queued WorldObjects for deletion
+	m_QeuedDeleteObjects.clear();
 }
 
 void TomFrame::PhysicsManager::CheckCollision(CollisionType thisType, WorldObject * thisObject, CollisionType otherType, WorldObject * otherObject) const
@@ -101,6 +127,7 @@ void TomFrame::PhysicsManager::Update()
 	}
 
 	DeqeueWorldObjects();
+	DeleteObjects();
 }
 
 

@@ -69,6 +69,9 @@ namespace TomFrame
 		/*Put the queued WorldObjects into the game*/
 		void DeqeueWorldObjects();
 
+		/*Puts a WorldObject in a queue for deletion from game*/
+		TOMFRAME_API void DestroyWorldObject(WorldObject* object) override;
+
 		/*Returns the TextureManager of this world*/
 		virtual TextureManager* GetTextureManager() { return p_TextureManager; }
 
@@ -79,11 +82,15 @@ namespace TomFrame
 		virtual WindowSettings* GetWindowSettings() { return p_WindowSettings; }
 
 	private:
+		void DeleteObjects();
+
 		sf::RenderWindow* p_RenderWindow = nullptr;
 
 		std::vector<WorldObject*> m_WorldObjects;
 		//We store all in game spawned WorldObjects here until new frame
 		std::vector<WorldObject*> m_QeuedWorldObject;
+		//We store all object who need to be destroyed here for one frame
+		std::vector<WorldObject*> m_QueueDeleteWorldObject;
 		TextureManager* p_TextureManager;
 		InputManager* p_InputManager = nullptr;
 		WindowSettings* p_WindowSettings = nullptr;

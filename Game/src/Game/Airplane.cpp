@@ -28,6 +28,7 @@ void Airplane::Update(float deltaTime)
 void Airplane::OnCollisionEnter(WorldObject* other)
 {
 	TomFrame::Debug::Logger::Log("Has collision");
+	GetWorld()->DestroyWorldObject(this);
 }
 
 void Airplane::Shoot()
