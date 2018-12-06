@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "../Components/PhysicsComponent.h"
 
 namespace TomFrame
 {
@@ -21,6 +22,12 @@ namespace TomFrame
 	private:
 		/*Deqeues the qeued objects*/
 		void DeqeueWorldObjects();
+
+		/*Main Check Collision function decides how to check for collision*/
+		void CheckCollision(CollisionType thisType, WorldObject* thisObject, CollisionType otherType, WorldObject* otherObject) const;
+
+		/*Check for box collision between the two WorldObjects*/
+		void CheckForBoxCollision(WorldObject* thisObject, WorldObject* otherObject) const;
 
 		std::vector<WorldObject*> m_WorldObjects;
 		std::vector<WorldObject*> m_QeuedObjects;

@@ -1,11 +1,6 @@
 #pragma once
 #include <TomFrameObjects.h>
 
-namespace TomFrame
-{
-	class WorldObject;
-}
-
 class Airplane : public TomFrame::WorldObject
 {
 public:

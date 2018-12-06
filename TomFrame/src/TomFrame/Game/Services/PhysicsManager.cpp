@@ -1,5 +1,6 @@
 #include "PhysicsManager.h"
 #include "../Objects/WorldObject.h"
+#include "../Components/TransfromComponent.h"
 #include "../../Debug/Logger.h"
 
 
@@ -43,14 +44,64 @@ void TomFrame::PhysicsManager::DeqeueWorldObjects()
 	m_QeuedObjects.clear();
 }
 
+void TomFrame::PhysicsManager::CheckCollision(CollisionType thisType, WorldObject * thisObject, CollisionType otherType, WorldObject * otherObject) const
+{
+	//If box collision check
+	if (thisType == CollisionType::Box && otherType == CollisionType::Box)
+	{
+		CheckForBoxCollision(thisObject, otherObject);
+	}
+}
+
+void TomFrame::PhysicsManager::CheckForBoxCollision(WorldObject * thisObject, WorldObject * otherObject) const
+{
+	//positions
+	sf::Vector2f originObject1 = thisObject->GetTransformComponent()->GetPosition();
+	sf::Vector2f originObject2 = otherObject->GetTransformComponent()->GetPosition();
+
+	//sizes
+	sf::Vector2f sizeObject1 = thisObject->GetPhysicsComponent()->GetSize();
+	sf::Vector2f sizeObject2 = otherObject->GetPhysicsComponent()->GetSize();
+
+	//Check for intersection
+	if (
+		((originObject2.x >= originObject1.x && originObject2.x <= originObject1.x + sizeObject1.x) && (originObject2.y >= originObject1.y && originObject2.y <= originObject1.y + sizeObject1.y))//Top left
+		|| //OR
+		((originObject2.x + sizeObject2.x >= originObject1.x && originObject2.x + sizeObject2.x <= originObject1.x + sizeObject1.x) && (originObject2.y >= originObject1.y && originObject2.y <= originObject1.y + sizeObject1.y)) //Top right
+		|| //OR
+		((originObject2.x >= originObject1.x && originObject2.x <= originObject1.x + sizeObject1.x) && (originObject2.y + sizeObject2.y >= originObject1.y && originObject2.y + sizeObject2.y <= originObject1.y + sizeObject1.y)) //Bottom left
+		|| //OR
+		((originObject2.x + sizeObject2.x >= originObject1.x && originObject2.x + sizeObject2.x <= originObject1.x + sizeObject1.x) && (originObject2.y + sizeObject2.y >= originObject1.y && originObject2.y + sizeObject2.y <= originObject1.y + sizeObject1.y)) //Bottom Right
+		)
+	{
+		//Only notify this object because other object will have this check as well
+		//Only on notidy because you'll end up with two otherwise
+		
+		thisObject->OnCollisionEnter(otherObject);
+	}
+	
+}
+
 void TomFrame::PhysicsManager::Update()
 {
-	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != m_WorldObjects.end(); it++)
-	{
-		//Check for collisions
+	//Get the end point already for performance
+	std::vector<TomFrame::WorldObject*>::iterator endIt = m_WorldObjects.end();
 
+	//Check for collisions
+	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != endIt; it++)
+	{
+		//Loop through all other WorldObjects
+		for (std::vector<TomFrame::WorldObject*>::iterator other = m_WorldObjects.begin(); other != endIt; other++)
+		{
+			if (it != other)
+			{
+				CheckCollision((*it)->GetPhysicsComponent()->GetCollisionType(), (*it), (*other)->GetPhysicsComponent()->GetCollisionType(), (*other));
+			}
+		}
 	}
 
 	DeqeueWorldObjects();
 }
+
+
 

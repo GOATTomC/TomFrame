@@ -26,7 +26,12 @@ namespace TomFrame
 		/*Creates a physic component with circle collision with the given radius*/
 		PhysicsComponent(WorldObject* owner, CollisionType collisionType, int radius);
 
+		/*Returns the collider type*/
+		CollisionType GetCollisionType() { return m_CollisionType; }
+
+		/*Returns the size of the collision box*/
 		sf::Vector2f GetSize() { return m_CollisionSize; }
+
 
 		void Initialize();
 		~PhysicsComponent();
