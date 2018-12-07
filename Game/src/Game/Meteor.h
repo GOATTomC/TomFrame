@@ -9,5 +9,6 @@ public:
 	~Meteor();
 
 	virtual void Update(float deltaTime) override;
+	virtual void OnCollisionEnter(WorldObject* other) override;
 
 };

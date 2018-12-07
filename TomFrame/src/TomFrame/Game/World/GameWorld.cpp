@@ -39,6 +39,10 @@ void TomFrame::GameWorld::Update(float deltaTime)
 	//Loop through all registered WorldObjects
 	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != m_WorldObjects.end(); it++)
 	{
+		if ((*it)->GetIsBeingDestroyed())
+		{
+			continue;
+		}
 		//Call update function on WorldObject
 		(*it)->Update(deltaTime);
 
@@ -81,8 +85,18 @@ void TomFrame::GameWorld::DeqeueWorldObjects()
 
 TOMFRAME_API void TomFrame::GameWorld::DestroyWorldObject(WorldObject * object)
 {
+	//Check if it is already being destroyed
+	if (!m_QueueDeleteWorldObject.empty())
+	{
+		if (std::find(m_QueueDeleteWorldObject.begin(), m_QueueDeleteWorldObject.end(), object) != m_QueueDeleteWorldObject.end())
+		{
+			return;
+		}
+	}
+
 	m_QueueDeleteWorldObject.push_back(object);
 	p_PhysicsManager->DeleteObject(object);
+	object->MarkIsBeingDestroyed();
 }
 
 void TomFrame::GameWorld::DeleteObjects()

@@ -52,12 +52,19 @@ namespace TomFrame
 		World* GetWorld() { return p_World; }
 		/*Sets the world where the object is in*/
 		void SetWorld(World* world) { p_World = world; }
+		/*Returns the name of the WorldObject*/
+		TOMFRAME_API std::string GetName() { return m_Name; }
+		/*Sets the DestroyState of the WorldObject*/
+		void MarkIsBeingDestroyed() { m_IsBeingDestroyed = true; }
+		/*Returns if the WorldObject is being Destroyed*/
+		TOMFRAME_API bool GetIsBeingDestroyed() { return m_IsBeingDestroyed; }
 
 		/*Initialize function that the game calls on creation of an object*/
 		TOMFRAME_API void Initialise(sf::Vector2f spawnPosition, std::string spriteLocation);
 
 		/*Gets called when the object is involved in a collision*/
 		TOMFRAME_API virtual void OnCollisionEnter(WorldObject* other);
+
 
 		/*Required update function for all inherited classes from this WorldObject*/
 		virtual void Update(float deltaTime) = 0;
@@ -67,6 +74,8 @@ namespace TomFrame
 		std::string m_Name;
 		/*The world the WorldObject is in*/
 		World* p_World = nullptr;
+
+		bool m_IsBeingDestroyed = false;
 
 
 		//Required components for every WorldObject

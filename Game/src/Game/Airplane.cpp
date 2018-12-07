@@ -28,11 +28,14 @@ void Airplane::Update(float deltaTime)
 void Airplane::OnCollisionEnter(WorldObject* other)
 {
 	TomFrame::Debug::Logger::Log("Has collision");
-	GetWorld()->DestroyWorldObject(this);
+	if (other->GetName() == "Meteor")
+	{
+		GetWorld()->DestroyWorldObject(this);
+	}
 }
 
 void Airplane::Shoot()
 {
-	Bullet* bullet = new Bullet("Test Bullet");
+	Bullet* bullet = new Bullet("Test Bullet", CollisionType::Box);
 	GetWorld()->CreateAndRegister(bullet, "Images/Bullet.png", GetTransformComponent()->GetPosition());
 }

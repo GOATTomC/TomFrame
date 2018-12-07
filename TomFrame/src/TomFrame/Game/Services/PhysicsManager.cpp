@@ -116,9 +116,19 @@ void TomFrame::PhysicsManager::Update()
 	//Check for collisions
 	for (std::vector<TomFrame::WorldObject*>::iterator it = m_WorldObjects.begin(); it != endIt; it++)
 	{
+		if ((*it)->GetIsBeingDestroyed())
+		{
+			continue;
+		}
+
 		//Loop through all other WorldObjects
 		for (std::vector<TomFrame::WorldObject*>::iterator other = m_WorldObjects.begin(); other != endIt; other++)
 		{
+			if ((*other)->GetIsBeingDestroyed())
+			{
+				continue;
+			}
+
 			if (it != other)
 			{
 				CheckCollision((*it)->GetPhysicsComponent()->GetCollisionType(), (*it), (*other)->GetPhysicsComponent()->GetCollisionType(), (*other));
